@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 2, 247, 109;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 247, 250, 249;
+    --background-start-rgb: 4, 176, 118;
+    --background-end-rgb: 4, 176, 118;
+  }
+}
+
+/* Chrome, Safari,Edege, Opera*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox*/
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+.hero_animation {
+  background-image: linear-gradient(147.92deg, hsla(217, 51%, 27%, 1) 10.41%, hsla(239, 52%, 28%, 0.98) 89.25%);
+  animation: changeBackgroundColor 8s infinite alternate;
+}
+
+@keyframes changeBackgroundColor {
+  0%, 100% {
+    opacity: 1;
+  }
+  16.67% {
+    opacity: 0.9;
+  }
+  33.33% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  66.67% {
+    opacity: 0.5;
+  }
+  83.33% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shake{
+  0%{
+    transform: translateX(0);
+  }
+  20%{
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60%{
+    transform: translateX(-2px);
+  }
+  80%{
+    transform: translateX(2px);
+  }
+  100%  {
+    transform: translateX(0px);
+  }
+}
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes backgroundColorAnimation {
+  0% {
+    background: linear-gradient(45deg, rgba(54, 209, 220, 0.5), rgba(91, 134, 229, 0.5));
+  }
+  50% {
+    background: linear-gradient(45deg, rgba(91, 134, 229, 0.5), rgba(54, 209, 220, 0.5));
+  }
+  100% {
+    background: linear-gradient(45deg, rgba(54, 209, 220, 0.5), rgba(91, 134, 229, 0.5));
+  }
+}
+
+.background-container {
+  background-image: url('/assets/bg1.jpeg'); /* Your background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+} 
+
+.background-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Dark overlay for better contrast */
+  animation: backgroundColorAnimation 0.5ms infinite ease-in-out;
+  z-index: 1;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .course-details {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Order Confirmation</h1>
+        <p>Hello user.name,</p>
+        <p>Thank you for your order! Below are the details of your course purchase:</p>
+
+        <div class="course-details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>course.name</th>
+                        <th>course.price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>course.name</td>
+                        <td>$course.price</td>
+                    </tr>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>$course.price</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="total">Total: $[Course Price]</p>
+        </div>
+
+        <p>If you have any questions, feel free to contact us at [Support Email].</p>
+        <p>Best regards,<br>The Waga Team</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Waga healthcares. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
