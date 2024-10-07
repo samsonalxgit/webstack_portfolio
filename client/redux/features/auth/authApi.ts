@@ -1,6 +1,6 @@
 import { register } from "module";
 import { apiSlice } from "../api/apiSlice"; 
-import { useerRegistration } from "./authSlice";
+import { userLoggedIn, userRegistration } from "./authSlice";
 import { data } from "autoprefixer";
 
 
@@ -27,7 +27,7 @@ export const authApi = apiSlice.injectEndpoints({
                 try {
                     const result = await queryFulfilled;
                     dispatch(
-                        useerRegistration({
+                        userRegistration({
                             token: result.data.activationToken,
                         })
                     );
@@ -39,7 +39,7 @@ export const authApi = apiSlice.injectEndpoints({
         }),
         activation: builder.mutation({
             query: ({activation_token,activation_code}) => ({
-                url: "activation",
+                url: "activate-user",
                 method:"POST",
                 body:{
                     activation_token,
@@ -49,7 +49,31 @@ export const authApi = apiSlice.injectEndpoints({
             })
            
         }),
+        login:builder.mutation({
+            query: ({ email, password}) => ({
+                url: "login",
+                method: "POST",
+                body:{
+                    email,
+                    password,
+                },
+                credentials: "include" as const,
+            }),
+            async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+                try {
+                    const result = await queryFulfilled;
+                    dispatch(
+                        userLoggedIn({
+                            token: result.data.activationToken,
+                            user: result.data.user,
+                        })
+                    );
+                } catch (error: any) {
+                    console.log(error);
+                }
+            },
+        }),
     }),
 });
 
-export const {useRegisterMutation, useActivationMutation} = authApi;
+export const {useRegisterMutation, useActivationMutation, useLoginMutation} = authApi;

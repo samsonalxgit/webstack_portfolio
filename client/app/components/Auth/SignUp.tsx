@@ -148,7 +148,7 @@ const SignUp: FC<Props> = ({ setRoute }) => {
           Already have an account?{""}
           <span
             className="text-[#2190ff] pl-1 cursor-pointer"
-            onClick={() => setRoute("Sign-Up")}
+            onClick={() => setRoute("Login")}
           >
             Login
           </span>
