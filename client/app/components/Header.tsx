@@ -9,6 +9,9 @@ import CustomModal from "../utils/CustomModal";
 import Login from "../components/Auth/Login";
 import SignUp from "../components/Auth/SignUp"
 import Verification  from "../components/Auth/Verification";
+import { useSelector } from "react-redux";
+import Image from "next/image";
+import avatar from "../../public/assets/bbbg1.jpeg"
 
 type Props = {
   open: boolean;
@@ -21,6 +24,7 @@ type Props = {
 const Header: FC<Props> = ({ activeItem, setOpen, route,setRoute,open}) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
+  const {user} = useSelector((state: any) => state.auth);
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
@@ -38,7 +42,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route,setRoute,open}) => {
         setOpenSidebar(false);
       }
     }
-  }
+  };
   return (
     <div className="w-full relative">
       <div
@@ -72,11 +76,23 @@ const Header: FC<Props> = ({ activeItem, setOpen, route,setRoute,open}) => {
                 />
               </div>
               <div>
-                <HiOutlineUserCircle
+                {
+                  user ? (
+                    <Link href={"/profile"}>
+                    <Image
+                      src = {user.avatar ? user.avatar : avatar}
+                      alt=""
+                      className="w-[30px] h-[30px] rounded-full cursor-pointer"
+                      />
+                    </Link>
+                  ) : (
+                    <HiOutlineUserCircle
                   size={25}
                   className="hidden 800px:block cursor-pointer dark:text-white text-black"
                   onClick={()=>setOpen(true)}
                   />
+                  )
+                }
               </div>
 
             </div>
