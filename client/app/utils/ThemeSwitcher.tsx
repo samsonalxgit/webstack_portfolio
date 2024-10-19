@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
+import React from "react"
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { BiMoon, BiSun } from "react-icons/bi"; // Fixed icon names
+import { BiMoon, BiSun } from "react-icons/bi"; //icon names
+import { ThemeProvider } from "./theme-provider";
 
 
 
@@ -26,6 +29,7 @@ export const ThemeSwitcher = ()=>{
             ) :(
                 <BiSun
                 size={25}
+                fill ="white"
                 className="cursor-pointer"
                 onClick={()=> setTheme("light")}/>
 
@@ -34,3 +38,5 @@ export const ThemeSwitcher = ()=>{
         </div>
         );
 };
+
+export default ThemeSwitcher;

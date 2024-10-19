@@ -12,7 +12,7 @@ import { styles } from "../../../app/styles/style";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import toast from "react-hot-toast";
 //import {signIn} from "next-auth";
-import signIn from "next-auth"
+import { signIn } from "next-auth/react"
 //import { Span } from "next/dist/trace";
 
 type Props = {

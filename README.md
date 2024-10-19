@@ -1,1 +1,2 @@
-# backend_project_portfolio
+# This is a webstack portfolio project as a final project for alx fullstack software engineering program.
+The project is about a website designed for improving healthcare knoledge gap in the community through public health education.

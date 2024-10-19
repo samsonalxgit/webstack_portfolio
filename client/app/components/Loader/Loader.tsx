@@ -5,7 +5,9 @@ type Props = {}
 
 const Loader = (props: Props) => {
   return (
-    <div>Loader</div>
+    <div>
+
+    </div>
   )
 }
 
